@@ -19,30 +19,30 @@ def main():
     max2: float
     s: int
 
-    N: int = int(input("Введите количество пространственных узлов, N"))
-    t_end: float = float(input("Введите окончание по времени, t_end"))
-    L: float = float(input("Введите толщину пластины, L"))
-    ro: float = float(input("Введите плотность материала пластины, ro"))
-    c: float = float(input("Введите теплоемкость материала пластины, c"))
-    T0: float = float(input("Введите начальную температуру в К, T0"))
-    Th: float = float(input("Введите температуру в К на границе х=0, Th"))
-    Tc: float = float(input("Введите температуру в К на границе х=L, Tc"))
+    N: int = int(input("Введите количество пространственных узлов, N: "))
+    t_end: float = float(input("Введите окончание по времени, t_end: "))
+    L: float = float(input("Введите толщину пластины, L: "))
+    ro: float = float(input("Введите плотность материала пластины, ro: "))
+    c: float = float(input("Введите теплоемкость материала пластины, c: "))
+    T0: float = float(input("Введите начальную температуру в К, T0: "))
+    Th: float = float(input("Введите температуру в К на границе х=0, Th: "))
+    Tc: float = float(input("Введите температуру в К на границе х=L, Tc: "))
 
     h: float = L / (N - 1)
     tau: float = t_end / 100
-
+    # T[0] = Th
     for i in range(1, N - 1):
         T[i] = T0
     with (open("iter.txt", 'w', encoding="utf-8") as f1, open("res.txt", "w", encoding="utf-8") as f,
           open("tempr.txt", "w", encoding="utf-8") as g):
         time: float = 0.0
+        s = 0
         while time < t_end:
             time += tau
             for i in range(0, N):
                 Tn[i] = T[i]
-            s = 0
+            s += 1
             while True:
-                s += 1
                 for i in range(0, N):
                     Ts[i] = T[i]
                 alfa[0] = 0.0
