@@ -32,7 +32,6 @@ def main():
 
     for i in range(1, N - 1):
         T[i] = T0
-
     with (open("iter.txt", 'w', encoding="utf-8") as f1, open("res.txt", "w", encoding="utf-8") as f,
           open("tempr.txt", "w", encoding="utf-8") as g):
         time: float = 0.0
